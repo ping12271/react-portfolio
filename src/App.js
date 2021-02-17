@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {Route, Switch} from 'react-router-dom';
+import styled from "styled-components";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Home from "./views/pages/Home";
+import Template from "./views/components/Layout/Template";
+import {GlobalStyle} from "./styled/Reset.Styled";
+
+const App = () => {
+
+    return (
+        <Container>
+            <GlobalStyle/>
+            <Template>
+                <Switch>
+                    <Route path={'/'} component={Home}/>
+                </Switch>
+            </Template>
+        </Container>
+    )
 }
+
+const Container = styled.div`
+
+`;
 
 export default App;
